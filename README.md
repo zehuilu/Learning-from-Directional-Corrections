@@ -240,7 +240,51 @@ and finally lands on the specified target --- mission accomplished!
 
 
 ## Experiments
-To-do
+1.
+```
+$ cd <MAIN_DIRECTORY>
+$ python3 experiments/run_quad_realtime.py
+```
+
+2.
+```
+$ cd <MAMBO_INTERFACE_DIRECTORY>
+$ python3 scripts_aimslab/run_mocap_qualisys.py 
+$ python3 scripts_aimslab/run_mambo.py 
+```
+
+
+## The script is not working, why?
+You might meet the following error.
+```
+Traceback (most recent call last):
+  File "experiments/run_quad_realtime.py", line 44, in <module>
+    Solver.run(QuadInitialCondition, QuadDesiredStates, iter_num=30, time_horizon=4, save_flag=True)
+  File "/***/Learning-from-Directional-Corrections/lib/QuadAlgorithmRealtime.py", line 131, in run
+    opt_sol = self.oc.ocSolver(ini_state=self.ini_state, horizon=num_steps_horizon,
+  File "/***/Learning-from-Directional-Corrections/LFC/LFC.py", line 153, in ocSolver
+    Ck = self.path_cost_fn(Xk, Uk, weights)
+  File "/***/.local/lib/python3.8/site-packages/casadi/casadi.py", line 13334, in __call__
+    ret = self.call(args)
+  File "/***/.local/lib/python3.8/site-packages/casadi/casadi.py", line 12214, in call
+    return _casadi.Function_call(self, *args)
+NotImplementedError: Wrong number or type of arguments for overloaded function 'Function_call'.
+  Possible prototypes are:
+    call(self,dict:DM,bool,bool)
+    call(self,[DM],bool,bool)
+    call(self,[SX],bool,bool)
+    call(self,dict:SX,bool,bool)
+    call(self,dict:MX,bool,bool)
+    call(self,[MX],bool,bool)
+  You have: '(Function,(MX,MX,NoneType))'
+```
+
+The reason is that the license for mosek is invalid or has expired. Try to run the mosek test script
+```
+$ cd <MAIN_DIRECTORY>
+$ python3 test/test_mosek_solver.py
+```
+You should see an error about the mosek license. You need to request a new license for mosek and replace the old one.
 
 
 ## Contact Information and Citation

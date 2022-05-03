@@ -100,12 +100,12 @@ class QuadrotorRealtime(Quadrotor):
             ax_top.add_patch(obs_01_top)
             ax_front.add_patch(obs_01_front)
         elif self.case_num == 2:
-            x0 = -0.30
-            y0 = -0.80
-            z0 = 0.76
-            x1 = -0.20
-            y1 = 0.48
-            z1 = 2.00
+            x0 = -0.40
+            y0 = -0.45
+            z0 = 1.09
+            x1 = -0.40
+            y1 = 0.45
+            z1 = 2.20
             dx = 0.1
             dy = 0.1
             dz = 0.1

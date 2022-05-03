@@ -140,7 +140,7 @@ class QuadAlgorithmRealtime:
             # save the trajectory
             traj_csv = np.vstack((time_traj, state_traj[:, 0:6].transpose()))
             if save_flag:
-                filename_csv = os.path.expanduser("~") + "/Mambo-Tracking-Interface" + \
+                filename_csv = os.path.expanduser("~") + "/Mambo-Tracking-Interface-LfDC" + \
                     self.config_data["DIRECTORY_TRAJ"] + time.strftime("%Y%m%d%H%M%S") + ".csv"
                 np.savetxt(filename_csv, traj_csv, delimiter=",")
 
